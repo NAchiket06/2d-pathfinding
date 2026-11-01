@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2D Pathfinding Preview</title>
+  <meta name="description"
+    content="Interactive browser preview of the Niket.Pathfinding2D node-graph A* pathfinder for Unity.">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="top">
+    <div>
+      <h1>2D Pathfinding Preview</h1>
+      <p class="sub">Browser demo of <strong>Niket.Pathfinding2D</strong>, a node-graph A* pathfinder for Unity. Same
+        cost model and heuristic as the C# code.</p>
+    </div>
+    <nav class="links">
+      <a href="https://github.com/NAchiket06/2d-pathfinding">Source</a>
+      <a class="primary"
+        href="https://github.com/NAchiket06/2d-pathfinding/raw/main/dist/Niket.Pathfinding2D-0.1.0.zip">Download Unity
+        DLLs 0.1.0</a>
+    </nav>
+  </header>
+
+  <main class="layout">
+    <section class="stage">
+      <div class="toolbar" role="toolbar" aria-label="Tools" id="tools">
+        <button data-tool="path" class="active" title="Click twice: start, then end (snaps to the closest node)">Find
+          path</button>
+        <button data-tool="select" title="Drag nodes and tangent handles, click a link to edit it">Select /
+          move</button>
+        <button data-tool="add" title="Click empty space to add a node">Add node</button>
+        <button data-tool="link" title="Drag from one node to another">Link</button>
+        <button data-tool="delete" title="Click a node or link to remove it">Delete</button>
+      </div>
+      <canvas id="canvas" aria-label="Pathfinding graph canvas"></canvas>
+      <p class="hint" id="hint"></p>
+    </section>
+
+    <aside class="panel">
+      <h2>Result</h2>
+      <dl class="stats">
+        <div>
+          <dt>Status</dt>
+          <dd id="sStatus">Pick a start and end</dd>
+        </div>
+        <div>
+          <dt>Total cost</dt>
+          <dd id="sCost">-</dd>
+        </div>
+        <div>
+          <dt>Nodes in path</dt>
+          <dd id="sNodes">-</dd>
+        </div>
+        <div>
+          <dt>Nodes expanded</dt>
+          <dd id="sExpanded">-</dd>
+        </div>
+      </dl>
+
+      <h2>New links</h2>
+      <label class="row">Weight <output id="wOut">1.0</output>
+        <input type="range" id="weight" min="0" max="5" step="0.1" value="1"></label>
+      <label class="check"><input type="checkbox" id="bidir" checked> Two-way (new links and edits)</label>
+
+      <h2>Auto link</h2>
+      <label class="row">Radius <output id="rOut">3.0</output>
+        <input type="range" id="radius" min="0.5" max="8" step="0.1" value="3"></label>
+      <div class="btns">
+        <button id="autoLink">Auto link by radius</button>
+        <button id="clearLinks">Clear all links</button>
+      </div>
+
+      <h2>Selected link</h2>
+      <div id="linkPanel" class="empty">Use Select and click a link.</div>
+      <div id="linkEdit" hidden>
+        <label class="row">Weight <output id="lwOut">1.0</output>
+          <input type="range" id="lWeight" min="0" max="5" step="0.1"></label>
+        <label class="check"><input type="checkbox" id="lSpline"> Spline (drag the handles)</label>
+        <p class="muted" id="lInfo"></p>
+      </div>
+
+      <h2>Display</h2>
+      <label class="check"><input type="checkbox" id="showLabels" checked> Link labels (distance x weight)</label>
+      <label class="check"><input type="checkbox" id="showExplored" checked> Show expanded nodes</label>
+      <label class="check"><input type="checkbox" id="walker" checked> Animate walker</label>
+      <label class="check"><input type="checkbox" id="dijkstra"> Disable heuristic (Dijkstra)</label>
+
+      <h2>Presets</h2>
+      <div class="btns">
+        <button data-preset="network">Network</button>
+        <button data-preset="grid">Grid</button>
+        <button data-preset="wall">Wall</button>
+        <button data-preset="weighted">Weighted</button>
+        <button data-preset="empty">Empty</button>
+      </div>
+    </aside>
+  </main>
+
+  <section class="info">
+    <h2>How it maps to Unity</h2>
+    <p>Each link is directional with a <code>weight</code>. Traversal cost is <code>distance * weight</code>, where
+      distance is the curve length for spline links. The heuristic is straight-line distance scaled by
+      <code>min(1, cheapest weight)</code>, so it never overestimates. Turning on "Disable heuristic" makes it Dijkstra,
+      which expands more nodes.</p>
+    <pre><code>using Niket.Pathfinding2D;
+
+var pathfinder = new Pathfinder(nodeParent);
+var path = new List&lt;Node&gt;();
+if (pathfinder.TryFindPath(startPos, endPos, path, out float cost)) {
+    // path = nodes from start to end
+}</code></pre>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

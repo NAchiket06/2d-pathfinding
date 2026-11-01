@@ -13,6 +13,10 @@ You place `Node` objects in the scene, link them (optionally with curved spline 
 - Gizmo visualisation of nodes, links, direction arrows and cost labels
 - Undo support for all editor actions
 
+## Browser preview
+
+An interactive demo of the same A* and cost model lives in [docs/](docs/). Build graphs, change link weights, add spline links and watch the path update. To host it, enable GitHub Pages under Settings > Pages with source `main` and folder `/docs`.
+
 ## Installation
 
 Copy the `Scripts` folder into your Unity project's `Assets` folder. Scripts under `Editor/` are editor-only and are excluded from builds automatically. Everything lives in the `Niket.Pathfinding2D` namespace.
