@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Nachiket.Pathfinding2D.Editor
+namespace Niket.Pathfinding2D.Editor
 {
     /// <summary>Scene visualisation for nodes and their links, plus tangent handles for spline links.</summary>
     [CustomEditor(typeof(Node))]

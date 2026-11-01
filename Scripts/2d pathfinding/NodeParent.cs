@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Nachiket.Pathfinding2D
+namespace Niket.Pathfinding2D
 {
     /// <summary>
     /// Parent of all pathfinding nodes. Collects child Nodes and offers lookup and bulk-linking helpers.

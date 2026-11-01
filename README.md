@@ -15,7 +15,7 @@ You place `Node` objects in the scene, link them (optionally with curved spline 
 
 ## Installation
 
-Copy the `Scripts` folder into your Unity project's `Assets` folder. Scripts under `Editor/` are editor-only and are excluded from builds automatically. Everything lives in the `Nachiket.Pathfinding2D` namespace.
+Copy the `Scripts` folder into your Unity project's `Assets` folder. Scripts under `Editor/` are editor-only and are excluded from builds automatically. Everything lives in the `Niket.Pathfinding2D` namespace.
 
 ## Setup
 
@@ -48,7 +48,7 @@ Gizmo settings (`showLinks`, `showLabels`, `nodeRadius`, colours) are also on th
 
 ```csharp
 using System.Collections.Generic;
-using Nachiket.Pathfinding2D;
+using Niket.Pathfinding2D;
 using UnityEngine;
 
 public class Walker : MonoBehaviour

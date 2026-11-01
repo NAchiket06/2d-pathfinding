@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Nachiket.Pathfinding2D
+namespace Niket.Pathfinding2D
 {
     /// <summary>
     /// A* search over a NodeParent's node graph. Link cost is Distance * weight.
