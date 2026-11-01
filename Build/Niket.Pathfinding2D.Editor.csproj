@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Niket.Pathfinding2D.Editor</AssemblyName>
+    <RootNamespace>Niket.Pathfinding2D.Editor</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\Scripts\2d pathfinding\Editor\*.cs" />
+    <ProjectReference Include="Niket.Pathfinding2D.csproj" />
+    <UnityRef Include="$(UnityEditorData)\Managed\UnityEngine\UnityEngine*.dll" />
+    <UnityRef Include="$(UnityEditorData)\Managed\UnityEngine\UnityEditor*.dll" />
+    <Reference Include="@(UnityRef)" Private="false" />
+  </ItemGroup>
+</Project>

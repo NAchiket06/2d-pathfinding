@@ -1,0 +1,15 @@
+<Project>
+  <PropertyGroup>
+    <!-- Override with: dotnet build -p:UnityEditorData="C:\path\to\Unity\Editor\Data" -->
+    <UnityEditorData Condition="'$(UnityEditorData)' == ''">C:\Program Files\Unity\Hub\Editor\6000.3.11f1\Editor\Data</UnityEditorData>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>disable</Nullable>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <DebugType>portable</DebugType>
+    <OutputPath>$(MSBuildThisFileDirectory)..\dist\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+  </PropertyGroup>
+</Project>
