@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Pathfinding2D.Editor
+namespace Nachiket.Pathfinding2D.Editor
 {
     [CustomEditor(typeof(NodeParent))]
     public class NodeParentEditor : UnityEditor.Editor

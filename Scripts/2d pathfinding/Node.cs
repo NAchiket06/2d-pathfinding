@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Pathfinding2D
+namespace Nachiket.Pathfinding2D
 {
     /// <summary>
     /// A connection from one node to another. Links are directional; use Node.Connect with
